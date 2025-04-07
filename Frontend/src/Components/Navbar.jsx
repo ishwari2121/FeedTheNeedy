@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
+import { HeartHandshake } from "lucide-react"; // Optional icon from lucide-react
 
 export default function Navbar() {
     const { authUser, logout } = useAuthContext();
@@ -12,22 +13,33 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="bg-blue-500 p-4 shadow-md">
-            <div className="container mx-auto flex justify-between items-center">
-                <Link to="/" className="text-white text-lg font-bold">MyApp</Link>
+        <nav className="bg-white shadow-md py-3 px-6 sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto flex justify-between items-center">
+                {/* Logo and Name */}
+                <Link to="/" className="flex items-center space-x-2">
+                    <HeartHandshake className="text-orange-600" size={28} />
+                    <span className="text-xl font-bold text-orange-700">FeedTheNeedy</span>
+                </Link>
 
+                {/* Navigation Links */}
                 <div className="space-x-4">
                     {!authUser ? (
                         <>
-                            <Link to="/login" className="text-white hover:underline">Login</Link>
-                            <Link to="/signup" className="text-white hover:underline">Signup</Link>
+                            <Link to="/login" className="text-gray-700 hover:text-orange-600 transition font-medium">
+                                Login
+                            </Link>
+                            <Link to="/signup" className="text-gray-700 hover:text-orange-600 transition font-medium">
+                                Signup
+                            </Link>
                         </>
                     ) : (
                         <>
-                            <Link to="/profile" className="text-white hover:underline">Profile</Link>
-                            <button 
-                                onClick={handleLogout} 
-                                className="text-white bg-red-500 px-3 py-1 rounded hover:bg-red-600"
+                            <Link to="/profile" className="text-gray-700 hover:text-orange-600 transition font-medium">
+                                Profile
+                            </Link>
+                            <button
+                                onClick={handleLogout}
+                                className="bg-red-500 text-white px-4 py-1.5 rounded-xl hover:bg-red-600 font-medium transition"
                             >
                                 Logout
                             </button>
