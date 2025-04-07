@@ -1,4 +1,3 @@
-import "./cronJobs/deleteExpiredDonations.js";
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
@@ -6,12 +5,13 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js'
 import donarRoutes from './routes/donarRoutes.js'
 import cookieParser from "cookie-parser";
+import Receiver from "./routes/Receiver.js";
+import Donation from './models/donation.js'
 
 dotenv.config();
 const app = express();
 app.use(cookieParser());
 import cron from "node-cron";
-import Donation from "../models/donation.js";
 
 app.use(cors({
   origin: "http://localhost:5173", // your frontend URL
@@ -20,7 +20,9 @@ app.use(cors({
 
 app.use(express.json());
 app.use('/api/auth',authRoutes);
-app.use('/api/donar',donarRoutes)
+app.use('/api/donar',donarRoutes);
+app.use('/api/receiver',Receiver)
+
 
 
 // Default route
