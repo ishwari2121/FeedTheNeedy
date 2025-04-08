@@ -8,9 +8,8 @@ export default function Home() {
     <div className="min-h-screen bg-orange-50 text-gray-800">
       <Navbar />
 
-      {/* Hero Section */}
       <div className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 py-16">
-        {/* Left Content */}
+
         <div className="max-w-xl">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
             Don’t Waste Food, <span className="text-orange-600">Share It.</span>
@@ -27,7 +26,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right Image */}
         <div className="mt-10 md:mt-0">
           <img
             src={DonationImg}
@@ -37,7 +35,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Quote or Info Section */}
       <div className="text-center py-10 px-4 bg-white border-t border-gray-200">
         <h2 className="text-xl md:text-2xl font-semibold text-orange-700">
           “If you can’t feed a hundred people, then feed just one.” – Mother Teresa

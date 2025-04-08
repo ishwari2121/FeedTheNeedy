@@ -11,7 +11,7 @@ export default function Donor() {
     quantity: "",
     expiryDate: "",
     pickupLocation: "",
-    foodType: "Veg"
+    foodType: "Veg",
   });
 
   const handleChange = (e) => {
@@ -24,8 +24,8 @@ export default function Donor() {
     if (!authUser) {
       alert("Please login to donate.");
       return;
-    }    
-    
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:5000/api/donar/addDonar",
@@ -43,7 +43,7 @@ export default function Donor() {
         quantity: "",
         expiryDate: "",
         pickupLocation: "",
-        foodType: "Veg"      
+        foodType: "Veg",
       });
     } catch (error) {
       console.error("Error submitting donation:", error);
@@ -52,28 +52,88 @@ export default function Donor() {
   };
 
   return (
-    <div className="max-w-lg mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4">Donate Food</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        Name of Food Item
-        <input type="text" name="foodItem" value={formData.foodItem} onChange={handleChange} placeholder="Food Item" required className="w-full p-2 border rounded" />
-        Quantity
-        <input type="text" name="quantity" value={formData.quantity} onChange={handleChange} placeholder="Quantity (e.g., 2 kg, 5 plates)" required className="w-full p-2 border rounded" />
-        Expiry date
-        <input type="date" name="expiryDate" value={formData.expiryDate} onChange={handleChange} required className="w-full p-2 border rounded" />
-        PickUplocation
-        <input type="text" name="pickupLocation" value={formData.pickupLocation} onChange={handleChange} placeholder="Pickup Location" required className="w-full p-2 border rounded" />
-        Food type
-        <select name="foodType" value={formData.foodType} onChange={handleChange} className="w-full p-2 border rounded">
-          <option value="Veg">Veg</option>
-          <option value="Non-Veg">Non-Veg</option>
-        </select>
+    <div className="px-4 md:px-10 py-10  bg-orange-50">
+      <div className="max-w-2xl mx-auto p-8 bg-white shadow-xl rounded-2xl border border-gray-200 mb-12">
+        <h2 className="text-3xl font-bold text-center mb-6 text-orange-600">🍛 Donate Food</h2>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label className="block font-semibold mb-1">Name of Food Item</label>
+            <input
+              type="text"
+              name="foodItem"
+              value={formData.foodItem}
+              onChange={handleChange}
+              placeholder="e.g. Biryani, Sandwiches"
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
 
+          <div>
+            <label className="block font-semibold mb-1">Quantity</label>
+            <input
+              type="text"
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleChange}
+              placeholder="e.g. 5 plates, 2 kg"
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
 
-        <button type="submit" className="w-full bg-green-500 text-white p-2 rounded hover:bg-green-600">Donate Now</button>
-      </form>
+          <div>
+            <label className="block font-semibold mb-1">Expiry Date</label>
+            <input
+              type="date"
+              name="expiryDate"
+              value={formData.expiryDate}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
 
-      <MyDonations/>
+          <div>
+            <label className="block font-semibold mb-1">Pickup Location</label>
+            <input
+              type="text"
+              name="pickupLocation"
+              value={formData.pickupLocation}
+              onChange={handleChange}
+              placeholder="e.g. Shivaji Nagar, Pune"
+              required
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            />
+          </div>
+
+          <div>
+            <label className="block font-semibold mb-1">Food Type</label>
+            <select
+              name="foodType"
+              value={formData.foodType}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
+            >
+              <option value="Veg">Vegetarian</option>
+              <option value="Non-Veg">Non-Vegetarian</option>
+            </select>
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl text-lg font-semibold shadow-md transition"
+          >
+            Donate Now
+          </button>
+        </form>
+      </div>
+
+      <hr className="border-t border-gray-300 my-12 mx-auto max-w-4xl" />
+
+      <div className="max-w-6xl mx-auto">
+        <MyDonations />
+      </div>
     </div>
   );
 }

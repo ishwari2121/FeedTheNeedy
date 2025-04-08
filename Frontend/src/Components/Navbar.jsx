@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../Context/authContext";
 import { useNavigate } from "react-router-dom";
-import { HeartHandshake } from "lucide-react"; // Optional icon from lucide-react
+import { HeartHandshake } from "lucide-react"; 
 
 export default function Navbar() {
     const { authUser, logout } = useAuthContext();
@@ -9,19 +9,18 @@ export default function Navbar() {
 
     const handleLogout = () => {
         logout();
-        navigate("/login");
+        navigate("/");
     };
 
     return (
         <nav className="bg-white shadow-md py-3 px-6 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
-                {/* Logo and Name */}
+
                 <Link to="/" className="flex items-center space-x-2">
                     <HeartHandshake className="text-orange-600" size={28} />
                     <span className="text-xl font-bold text-orange-700">FeedTheNeedy</span>
                 </Link>
 
-                {/* Navigation Links */}
                 <div className="space-x-4">
                     {!authUser ? (
                         <>

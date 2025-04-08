@@ -8,7 +8,7 @@ import Dashboard from './Pages/DashBoard';
 import Donar from './Pages/Doner';
 import Receive from './Pages/Receive';
 import MyDonations from './Components/MyDonation';
-
+import Profile from './Pages/Profile'
 
 function App() {
   return (
@@ -21,6 +21,8 @@ function App() {
         <Route path='/donar' element={<Donar />} />
         <Route path='/receive' element={<Receive />} />
         <Route path='/Mydonations' element={<MyDonations />} />
+        <Route path='/profile' element={<Profile />} />
+
 
       </Routes>
     </Router>
