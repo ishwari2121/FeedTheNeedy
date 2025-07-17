@@ -16,7 +16,7 @@ export default function Navbar() {
         <nav className="bg-white shadow-md py-3 px-6 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto flex justify-between items-center">
 
-                <Link to="/" className="flex items-center space-x-2">
+                <Link to={authUser ? "/dashboard" : "/"} className="flex items-center space-x-2">
                     <HeartHandshake className="text-orange-600" size={28} />
                     <span className="text-xl font-bold text-orange-700">FeedTheNeedy</span>
                 </Link>

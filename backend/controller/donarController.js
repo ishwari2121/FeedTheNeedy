@@ -4,11 +4,6 @@ import Donation from "../models/donation.js";
 const router = express.Router();
 
 export const addDonar = async (req, res) => {
-
-    console.log("shittt");
-    console.log(req.user);
-    console.log(req.body);
-
   try {
     const {
       foodItem,

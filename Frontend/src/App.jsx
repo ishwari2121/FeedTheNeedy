@@ -22,8 +22,6 @@ function App() {
         <Route path='/receive' element={<Receive />} />
         <Route path='/Mydonations' element={<MyDonations />} />
         <Route path='/profile' element={<Profile />} />
-
-
       </Routes>
     </Router>
   );

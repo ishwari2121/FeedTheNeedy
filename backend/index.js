@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 
 connectDB();
 
-cron.schedule("0 * * * *", async () => {
+cron.schedule("*/1 * * * *", async () => {
   try {
     const now = new Date();
     const result = await Donation.deleteMany({ expiryDate: { $lt: now } });
