@@ -7,11 +7,12 @@ import donarRoutes from './routes/donarRoutes.js'
 import cookieParser from "cookie-parser";
 import Receiver from "./routes/Receiver.js";
 import Donation from './models/donation.js'
+import cron from "node-cron";
+
 
 dotenv.config();
 const app = express();
 app.use(cookieParser());
-import cron from "node-cron";
 
 app.use(cors({
   origin: "http://localhost:5173", // your frontend URL
